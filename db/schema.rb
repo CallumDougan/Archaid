@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160111125858) do
+ActiveRecord::Schema.define(version: 20160111164942) do
 
   create_table "arcades", force: :cascade do |t|
     t.integer  "game_1_id"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20160111125858) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.text     "image"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
