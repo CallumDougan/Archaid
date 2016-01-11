@@ -1,0 +1,2 @@
+class XoController < ApplicationController
+end

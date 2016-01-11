@@ -1,0 +1,2 @@
+module XoHelper
+end
