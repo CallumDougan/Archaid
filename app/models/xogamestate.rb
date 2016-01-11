@@ -19,8 +19,9 @@ class XoGameState
     @board
   end
 
-  def update_board (row, column, piece)
-    @board[row][column] = piece
+  def update_board (row, column)
+    @board[row][column] = @pieces[ @turn % 2 ]
+    redirect_to xo_path
   end
 
 end

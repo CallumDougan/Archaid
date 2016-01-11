@@ -20,16 +20,15 @@
       <div class="container">
         <div class="go-left">
           <div class="logo">
-            Archaid
+            ARCHAID
           </div>
         </div>
         <div class="go-right">
           <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="/">Profile</a></li>
             <li><a href="/">About</a></li>
             <li><% if current_user %>
-            <%= current_user.name %></li>
+            <%= link_to "#{current_user.name}'s profile", user_path(current_user.id) %></li>
             <li><%= link_to 'log out', destroy_user_session_path, method: :delete %></li>
             <% else %>
             <li><%= link_to 'sign in', new_user_session_path %>,
