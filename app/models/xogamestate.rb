@@ -11,6 +11,10 @@ class XoGameState
     @turn = 0
   end
 
+  def turn_count
+    @turn += 1
+  end
+
   def show_board
     @board
   end
