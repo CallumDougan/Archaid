@@ -1,0 +1,2 @@
+class CoinflipController < ApplicationController
+end
