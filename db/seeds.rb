@@ -7,11 +7,11 @@ Arcade.create!([
   {game_1_id: nil, game_2_id: nil}
 ])
 Coinflip.create!([
-  {game_state: nil, arcade_id: 1}
+  {arcade_id: 1, name: "coinflip"}
 ])
 Match.create!([
-  {user_1_id: 1, user_2_id: 2, game_id: nil, arcade_id: 1, result: nil}
+  {user_1_id: 1, user_2_id: 2, game_id: nil, arcade_id: 1, result: nil, game_state: nil}
 ])
 Xo.create!([
-  {game_state: nil, arcade_id: nil}
+  {arcade_id: 1, name: "xo"}
 ])

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160111121613) do
+ActiveRecord::Schema.define(version: 20160111125858) do
 
   create_table "arcades", force: :cascade do |t|
     t.integer  "game_1_id"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20160111121613) do
     t.integer  "arcade_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "name"
   end
 
 # Could not dump table "matches" because of following NoMethodError
@@ -53,6 +54,7 @@ ActiveRecord::Schema.define(version: 20160111121613) do
     t.integer  "arcade_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "name"
   end
 
 end

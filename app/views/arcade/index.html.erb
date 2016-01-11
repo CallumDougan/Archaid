@@ -1,8 +1,5 @@
-
-
-<% Arcade.games.each do |game| %>
+<% Arcade.first.games.each do |game| %>
 <ul>
-  <li><%= %> </li>
-  <li><%#= game.matches.count %></li>
+  <li><%= link_to game.name, "#{game.class}" %> </li>
 </ul>
 <% end %>
