@@ -1,8 +1,8 @@
+require 'xogamestate'
 class XoController < ApplicationController
 
-
   def show
-    @board = Xo.new
+    @board = XoGameState.new
   end
 
 end
