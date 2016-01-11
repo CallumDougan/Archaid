@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160111100631) do
+ActiveRecord::Schema.define(version: 20160111121613) do
 
   create_table "arcades", force: :cascade do |t|
     t.integer  "game_1_id"
@@ -21,21 +21,13 @@ ActiveRecord::Schema.define(version: 20160111100631) do
   end
 
   create_table "coinflips", force: :cascade do |t|
-    t.string   "game_state"
     t.integer  "arcade_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "matches", force: :cascade do |t|
-    t.integer  "user_1_id"
-    t.integer  "user_2_id"
-    t.integer  "game_id"
-    t.integer  "arcade_id"
-    t.string   "result"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+# Could not dump table "matches" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -58,7 +50,6 @@ ActiveRecord::Schema.define(version: 20160111100631) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
   create_table "xos", force: :cascade do |t|
-    t.string   "game_state"
     t.integer  "arcade_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
