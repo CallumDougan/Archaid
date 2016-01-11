@@ -13,6 +13,81 @@
 <% if alert %>
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>CSS</title>
+  <link rel="stylesheet" type "text/css" href="styles.css">
+  <link rel="stylesheet" type "text/css" href="normalize.css">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="container">
+        <div class="go-left">
+          <div class="logo">
+            Archaid
+          </div>
+        </div>
+        <div class="go-right">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/">Profile</a></li>
+            <li><a href="/">About</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <h1>CodeClan <small>Bank</small></h1>
+  </header>
+
+  <main class ="container">
+    <section class = "row">
+      <div class = "grid grid-6">
+        <div class = "panel panel-primary">
+          <div class = "panel-heading">Heading1</div>
+          <div class = "panel-body">
+            body
+          </div>
+          <div class="panel-footer">
+            footer
+          </div>
+        </div>
+
+      </div>
+      <div class = "grid grid-3">
+        <div class = "panel panel-primary">
+          <div class = "panel-heading">Heading2</div>
+          <div class = "panel-body">
+            body
+          </div>
+          <div class="panel-footer">
+            footer
+          </div>
+        </div>
+      </div>
+
+      <div class = "grid grid-3">
+        <div class = "panel panel-primary">
+          <div class = "panel-heading">Heading3</div>
+          <div class = "panel-body">
+            body
+          </div>
+          <div class="panel-footer">
+            footer
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    Our footer
+  </footer>
+
+</body>
+</html>
 <%= yield %>
 
 </body>
