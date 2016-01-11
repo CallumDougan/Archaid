@@ -1,11 +1,8 @@
 class XoController < ApplicationController
-  def initialize
-    @board = [
-      [nil,nil,nil],
-      [nil,nil,nil],
-      [nil,nil,nil] 
-                    ]
-    @pieces = [:o, :x]
-    @turn = 0
+
+
+  def show
+    @board = Xo.new
   end
+
 end

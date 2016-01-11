@@ -5,6 +5,8 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link rel="stylesheet" type "text/css" href="styles.css">
+  <link rel="stylesheet" type "text/css" href="normalize.css">
 </head>
 <body>
 <% if notice %>
@@ -13,16 +15,6 @@
 <% if alert %>
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>CSS</title>
-  <link rel="stylesheet" type "text/css" href="styles.css">
-  <link rel="stylesheet" type "text/css" href="normalize.css">
-</head>
-<body>
-
   <header>
     <nav>
       <div class="container">
@@ -36,9 +28,17 @@
             <li><a href="/">Home</a></li>
             <li><a href="/">Profile</a></li>
             <li><a href="/">About</a></li>
+            <li><% if current_user %>
+            <%= current_user.name %></li>
+            <li><%= link_to 'log out', destroy_user_session_path, method: :delete %></li>
+            <% else %>
+            <li><%= link_to 'sign in', new_user_session_path %>,
+            <%= link_to 'sign up!', new_user_registration_path %></li>
+            <% end %>
           </ul>
         </div>
       </div>
+     
     </nav>
   </header>
 </body>

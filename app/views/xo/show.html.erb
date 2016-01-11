@@ -1,0 +1,21 @@
+<center>
+<p><b>How to play:</b></p>
+<p>Click on a space to place your piece there</p>
+  <table>
+    <tbody>
+      <% @board.show_board.each do |row| %>
+      <tr>
+        <% row.each do |place| %>
+        <td><% if place.nil? %>
+        <%= image_tag "Untitled.png" %>
+          <% elsif place == :x %>
+          <%= "x" %>
+          <% elsif place == :o %>
+          <%= "o" %>
+          <% end %></td>
+          <% end %>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </center>
