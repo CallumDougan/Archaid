@@ -8,9 +8,3 @@
 
 
 User.create(name: "Barry", password: "password", email: "barry@barry.com", role: "admin")
-
-Xo.create()
-
-Coinflip.create()
-
-Arcade.create()
