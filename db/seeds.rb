@@ -5,6 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Users.delete!
+
 
 User.create(name: "Barry", password: "password", email: "barry@barry.com", role: "admin")
+
+Xo.create()
+
+Coinflip.create()
+
+Arcade.create()
