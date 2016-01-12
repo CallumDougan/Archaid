@@ -1,7 +1,7 @@
 class XoGameState
   attr_accessor :board, :pieces, :turn
 
-  def initialize
+  def initialize(match)
     @board = [
       [nil,nil,nil],
       [nil,nil,nil],
@@ -9,6 +9,7 @@ class XoGameState
     ]
     @pieces = [:o, :x]
     @turn = 0
+    match.moves.each
   end
 
   def turn_count
@@ -22,6 +23,6 @@ class XoGameState
   def update_board (row, column)
     @board[row][column] = @pieces[ @turn % 2 ]
     redirect_to xo_path
-  end
+  end 
 
 end

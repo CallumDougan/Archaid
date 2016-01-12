@@ -1,6 +1,20 @@
 <center>
-<br><br>
-<b>Name:</b>
-<%= current_user.name %>
+
+  <br><br>
+
+  <b>Name:</b>
+  <%= current_user.name %>
+  <br><br>
+  <b>Avatar:</b><br>
+  <%= image_tag current_user.image, style: 'height:100px;width:auto;' %>
+  <%= form_for current_user do |f| %>
+    <b><%= f.label 'Change avatar' %></b>
+    <br>
+    <%= f.text_field :image %>
+    <br>
+    <%= f.submit 'Update avatar'%>
+    <br>
+  <% end %>
+
 
 </center>

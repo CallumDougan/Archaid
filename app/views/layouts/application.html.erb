@@ -9,12 +9,12 @@
   <link rel="stylesheet" type "text/css" href="normalize.css">
 </head>
 <body>
-<% if notice %>
+  <% if notice %>
   <p class="alert alert-success"><%= notice %></p>
-<% end %>
-<% if alert %>
+  <% end %>
+  <% if alert %>
   <p class="alert alert-danger"><%= alert %></p>
-<% end %>
+  <% end %>
   <header>
     <nav>
       <div class="container">
@@ -27,22 +27,24 @@
           <ul>
             <li><a href="/">Home</a></li>
             <li><a href="/">About</a></li>
-            <li><% if current_user %>
-            <%= link_to "#{current_user.name}'s profile", user_path(current_user.id) %></li>
-            <li><%= link_to 'log out', destroy_user_session_path, method: :delete %></li>
-            <% else %>
-            <li><%= link_to 'sign in', new_user_session_path %>,
-            <%= link_to 'sign up!', new_user_registration_path %></li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-     
-    </nav>
-  </header>
-</body>
-</html>
-<%= yield %>
 
-</body>
-</html>
+
+            <li><% if current_user %>
+              <%= link_to "#{current_user.name}'s profile", user_path(current_user.id) %></li>
+              <li><%= link_to 'log out', destroy_user_session_path, method: :delete %></li>
+              <% else %>
+              <li><%= link_to 'sign in', new_user_session_path %>,
+                <%= link_to 'sign up!', new_user_registration_path %></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+
+        </nav>
+      </header>
+    </body>
+    </html>
+    <%= yield %>
+
+  </body>
+  </html>

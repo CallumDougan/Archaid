@@ -5,5 +5,19 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
          has_many :matches
 
+  before_save :default_values
+
+  def initialize
+    @image = :image
+  end
+
+  def default_values
+    self.image ||= 'default_av.gif'
+  end
+
+  def user_image
+    @image
+  end
+
 
 end

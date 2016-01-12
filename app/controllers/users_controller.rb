@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
   
+  # before_action :load_user, except: [:index, :create, :new]
+
+
     def index
       @users = User.all
     end
@@ -16,11 +19,15 @@ class UsersController < ApplicationController
     end
 
     def create
-     
+     @user = User.new(user_params)
+     @user.save
+     redirect_to user_path
     end
 
     def update
-
+        @user = User.find(current_user)
+        @user.update_attributes(user_params)
+        redirect_to user_path
     end
 
     def destroy
@@ -36,7 +43,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:name, :content, :user_id, :article_id)
+      params.require(:user).permit(:name, :content, :user_id, :article_id, :image)
     end
 
   

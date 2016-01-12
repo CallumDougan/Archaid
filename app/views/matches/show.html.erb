@@ -7,7 +7,7 @@
       <tr>
         <% row.each do |place| %>
         <td><% if place.nil? %>
-        <%= link_to image_tag ("Untitled.png"), xo_place_piece_path %>
+        <%= link_to image_tag ("Untitled.png")%>
           <% elsif place == :x %>
           <%= image_tag "x" %>
           <% elsif place == :o %>
