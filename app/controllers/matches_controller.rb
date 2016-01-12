@@ -22,6 +22,7 @@ class MatchesController < ApplicationController
     elsif what_type == "coinflip"
       @match.game_type = "coinflip"
     end
+    @match.game_state = "playing"
     @match.save
   end
 
