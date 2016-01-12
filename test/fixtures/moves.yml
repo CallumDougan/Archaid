@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  symbol: 
+  row: 1
+  column: 1
+  match_id: 1
+
+two:
+  symbol: 
+  row: 1
+  column: 1
+  match_id: 1
