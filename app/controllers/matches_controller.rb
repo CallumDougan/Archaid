@@ -14,6 +14,10 @@ class MatchesController < ApplicationController
   end
 
   def create
+    what_type = params[:game]
+
+    
+    
     @match = Match.create(match_params)
   end
 
