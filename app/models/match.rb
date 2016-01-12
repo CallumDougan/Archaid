@@ -7,5 +7,13 @@ class Match < ActiveRecord::Base
     User.find(self.user)
   end
 
+  def match_list
+    Match.all do |match|
+      if match.user_2_id == current_user.id
+        match
+      end
+    end
+  end
+
 
 end
