@@ -9,4 +9,8 @@ class MatchesController < ApplicationController
     raise
   end
 
+  def create
+
+  end
+
 end
