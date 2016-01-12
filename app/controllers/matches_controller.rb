@@ -14,17 +14,21 @@ class MatchesController < ApplicationController
   end
 
   def create
+    @match = Match.create(match_params)
     what_type = params[:game]
     #case statement, game name (e.g, 'xo')
-    
-    
-    @match = Match.create(match_params)
+    if what_type == "xo"
+      @match.game_type = "xo"
+    elsif what_type == "coinflip"
+      @match.game_type = "coinflip"
+    end
+    @match.save
   end
 
   private
 
   def match_params
-      params.require(:match).permit(:user_1_id, :user_2_id, :game_id, :arcade_id, :result, :game_state)
+    params.require(:match).permit(:user_1_id, :user_2_id, :game_type, :arcade_id, :result, :game_state)
   end
 
 end
