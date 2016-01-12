@@ -1,11 +1,11 @@
 <center>
-  <%=  %>
-  <%= form_for Match.new do |f| %>
+  <% challenge = Match.new %>
+  <%= form_for challenge do |f| %>
+  <%= f.hidden_field :arcade_id, value: Arcade.first.id  %>
   <%= f.hidden_field :user_1_id, value: current_user.id %>
-  <%= f.collection_select :user_2_id, User.order(:name), :id, :name%>
+  <%= f.collection_select :user_2_id, User.order(:name), :id, :name %>
   <br>
   <%= f.submit 'Send challenge!' %>
-  <%= redirect_to %>
   <% end %>
 
 </center>
