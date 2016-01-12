@@ -1,2 +1,7 @@
 <p>test</p>
 
+<%=  %>
+<%= form_for Match.new do |f| %>
+<%= f.collection_select :user_2_id, User.order(:name), :id,:name%>
+<%= f.submit %>
+<% end %>
