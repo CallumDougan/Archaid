@@ -19,7 +19,7 @@
   <b>Matches:</b>
   <br>
   <% Match.all.each do |match| %>
-    <% if match.user_1_id == current_user.id %>
+    <% if match.user_1_id == current_user.id || match.user_2_id == current_user.id %>
       <%= match %>
       <br>
     <% end %>
