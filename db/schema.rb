@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160112165410) do
+ActiveRecord::Schema.define(version: 20160112153553) do
 
   create_table "arcades", force: :cascade do |t|
     t.integer  "game_1_id"
@@ -27,8 +27,16 @@ ActiveRecord::Schema.define(version: 20160112165410) do
     t.string   "name"
   end
 
-# Could not dump table "matches" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "matches", force: :cascade do |t|
+    t.integer  "user_1_id"
+    t.integer  "user_2_id"
+    t.string   "game_type"
+    t.integer  "arcade_id"
+    t.string   "game_state"
+    t.string   "result"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "moves", force: :cascade do |t|
     t.integer  "row"

@@ -7,9 +7,9 @@ class User < ActiveRecord::Base
 
   before_save :default_values
 
-  def initialize
-    @image = :image
-  end
+  # def initialize
+  #   @image = :image
+  # end
 
   def default_values
     self.image ||= 'default_av.gif'

@@ -3,9 +3,10 @@ class CreateMatches < ActiveRecord::Migration
     create_table :matches do |t|
       t.integer :user_1_id
       t.integer :user_2_id
-      t.integer :game_id
+      t.string  :game_type
       t.integer :arcade_id
-      t.string :result
+      t.string  :game_state
+      t.string  :result
 
       t.timestamps null: false
     end

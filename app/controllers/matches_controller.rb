@@ -15,7 +15,7 @@ class MatchesController < ApplicationController
 
   def create
     what_type = params[:game]
-
+    #case statement, game name (e.g, 'xo')
     
     
     @match = Match.create(match_params)
