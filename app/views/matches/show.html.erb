@@ -1,13 +1,30 @@
+
+
+
 <center>
-<p><b>How to play:</b></p>
-<p>Click on a space to place your piece there</p>
+<% if @match.game_state == 'completed'  && @match.winner != 0 %>
+  <% if  @match.winner == 0 %>
+    The game is drawn
+  <% else %>
+    The Winner IS..  <%= User.find(@match.winner).name %>
+  <% end %>
+<% else %>
+  <p><b>How to play:</b></p>
+  <p>Click on a space to place your piece there</p>
+<% end %>
+
+
   <table>
     <tbody>
       <% @game_state.show_board.each_with_index do |row, row_index| %>
       <tr>
         <% row.each_with_index do |place, column_index| %>
         <td><% if place.nil? %>
-        <%= link_to(image_tag("Untitled.png"), match_place_piece_path(@match, {row: row_index, column: column_index}))%>
+              <% if @match.game_state == 'completed' %>
+                <%= image_tag("Untitled.png") %>
+              <% else %>
+                <%= link_to(image_tag("Untitled.png"), match_place_piece_path(@match, {row: row_index, column: column_index}))%>
+              <% end %>
           <% elsif place == "x" %>
           <%= "X" %>
           <% elsif place == "o" %>
