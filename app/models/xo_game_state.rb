@@ -93,12 +93,10 @@ class XoGameState
       else
         @match.winner = @match.user_2_id
       end
-      # "This game was won by #{@match.winner(:name)}"
     end
 
     @match.game_state = "completed"
     @match.save
-    # redirect_to user_path
   end
 
 end

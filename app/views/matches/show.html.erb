@@ -2,7 +2,7 @@
 
 
 <center>
-<% if @match.game_state == 'completed'  && @match.winner != 0 %>
+<% if @match.game_state == 'completed' %>
   <% if  @match.winner == 0 %>
     The game is drawn
   <% else %>
@@ -21,14 +21,14 @@
         <% row.each_with_index do |place, column_index| %>
         <td><% if place.nil? %>
               <% if @match.game_state == 'completed' %>
-                <%= image_tag("Untitled.png") %>
+                <%= image_tag("blank.png") %>
               <% else %>
-                <%= link_to(image_tag("Untitled.png"), match_place_piece_path(@match, {row: row_index, column: column_index}))%>
+                <%= link_to(image_tag("blank.png"), match_place_piece_path(@match, {row: row_index, column: column_index}))%>
               <% end %>
           <% elsif place == "x" %>
-          <%= "X" %>
+          <%= image_tag("x.png") %>
           <% elsif place == "o" %>
-          <%= "O" %>
+          <%= image_tag("o.png") %>
           <% end %></td>
           <% end %>
         </tr>
