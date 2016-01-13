@@ -24,6 +24,7 @@ class MatchesController < ApplicationController
     end
     @match.game_state = "playing"
     @match.save
+    redirect_to match_path(@match.id)
   end
 
   private

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :matches do
     get :place_piece
+    resources :moves
   end
 
   post 'users/:id' => 'users#update'

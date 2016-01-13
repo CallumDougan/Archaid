@@ -12,8 +12,16 @@ class XoGameState
     match.moves.each
   end
 
+  def turn_order
+    
+  end
+
   def turn_count
     @turn += 1
+  end
+
+  def draw_check
+   @turn == 9
   end
 
   def show_board

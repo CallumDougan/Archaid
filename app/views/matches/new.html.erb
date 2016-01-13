@@ -4,13 +4,11 @@
   <%= f.hidden_field :arcade_id, value: Arcade.first.id  %>
   <%= f.hidden_field :user_1_id, value: current_user.id %>
   <%= f.collection_select :user_2_id, User.order(:name), :id, :name %>
-
   <%= radio_button_tag(:game, "xo") %>
   <%= label_tag(:game_1_id, "Play XO") %>
   <%= radio_button_tag(:game, "coinflip") %>
   <%= label_tag(:game_2_id, "Play Coinflip") %>
-
-  <br>
+  <br><br>
   <%= f.submit 'Send challenge!' %>
   <% end %>
 
