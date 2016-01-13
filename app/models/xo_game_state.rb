@@ -19,6 +19,18 @@ class XoGameState
    number_of_turns == 9
   end
 
+  def win_check
+    
+  end
+
+  def end_check
+    if draw_check?
+
+    elsif win_check?
+
+    end
+  end
+
   def show_board
     @board
   end
@@ -27,7 +39,7 @@ class XoGameState
     piece = @pieces[ number_of_turns % 2 ]
     @match.moves.create(row: row, column: column, piece: piece)
     #winchecking
-    
+
   end 
 
   def refresh_board
