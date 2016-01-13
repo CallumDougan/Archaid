@@ -1,5 +1,5 @@
 class XoGameState
-  attr_accessor :board, :pieces, :turn
+  attr_accessor :board, :pieces, :turn, :match
 
   def initialize(match)
     @match = match
@@ -30,6 +30,48 @@ class XoGameState
     end
   end
   winner
+end
+
+
+def horizontal_win2
+  @match.moves.each do |row|
+    row.all? do |place|
+      if place == @match.moves(:row)
+        winner = @match.moves(:row)
+      end
+      winner
+    end
+  end
+end
+
+def horizontal_win3
+  @match.moves.each do |row|
+    row.each do |place|
+      if @match.moves.where(row: place.row) == 3
+        winner = @match.moves(:row)
+      end
+      winner
+    end
+  end
+end
+
+def straight_line_win
+#check to see if any row or column is filled, checks if the piece is the same in all three places, returns winning piece
+row_zero = @match.moves.where(row: 0)
+row_one = @match.moves.where(row: 1)
+row_two = @match.moves.where(row: 2)
+column_zero = @match.moves.where(column: 0)
+column_one = @match.moves.where(column: 1)
+column_two = @match.moves.where(column: 2)
+line_wins = [row_zero, row_one, row_two, column_zero, column_one, column_two]
+line_wins.find do |line|
+  if line.count == 3
+    winner = line(:row)
+  else
+    winner = nil
+  end
+  winner
+end
 end
 
 def vertical_win
@@ -73,6 +115,10 @@ def end_check
 elsif win_check?
 #note result, redirect_to custom route?
 end
+end
+
+def declare_winner
+  #updates match info to reflect winner
 end
 
 def show_board
