@@ -16,6 +16,14 @@
   <br>
   <% end %>
   <br><br>
+  <b>Win record:</b>
+  <br>
+
+  <%= current_user.win_record %>%
+  
+
+  <br><br><br>
+
   <main class ="container">
       <section class = "row">
         <div class = "grid grid-3">
@@ -28,19 +36,20 @@
                 <% else %>
                   <% opponent = match.user_1_id %>
                 <% end %>
-                <%= User.find(params[:name]).where(id: opponent) %>
+                  <%= User.find(opponent).name %>
                 <br><br>
               <% end %>
             </div>
           </div>
-
         </div>
+
         <div class = "grid grid-3">
           <div class = "panel panel-primary">
-            <div class = "panel-heading">Game</div>
+            <div class = "panel-heading">Played</div>
             <div class = "panel-body">
               <% Match.all.each do |match| %>
-                <%= match %>
+                <%= match.updated_at %>
+                <br>
               <% end %>
             </div>
           </div>
