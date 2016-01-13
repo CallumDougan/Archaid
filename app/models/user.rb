@@ -21,10 +21,8 @@ class User < ActiveRecord::Base
 
   def win_record
   wins = Match.where(winner: self.id).count
-  # binding.pry
   percentage = wins.fdiv(Match.all.count) * 100
-
- end
+  end
 
 
 end
