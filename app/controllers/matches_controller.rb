@@ -2,7 +2,8 @@ class MatchesController < ApplicationController
 
   def show
     @match = Match.find(params[:id])
-    @board = XoGameState.new(@match)
+    @game_state = XoGameState.new(@match)
+    @game_state.refresh_board
   end
 
   def index
@@ -10,13 +11,15 @@ class MatchesController < ApplicationController
   end
 
   def place_piece
-    raise
+    @match = Match.find(params[:match_id])  
+    @game_state = XoGameState.new(@match)
+    @game_state.create_move(params[:row], params[:column])
+    redirect_to match_path(@match)
   end
 
   def create
     @match = Match.create(match_params)
     what_type = params[:game]
-    #case statement, game name (e.g, 'xo')
     if what_type == "xo"
       @match.game_type = "xo"
     elsif what_type == "coinflip"

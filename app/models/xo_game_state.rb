@@ -2,35 +2,39 @@ class XoGameState
   attr_accessor :board, :pieces, :turn
 
   def initialize(match)
+    @match = match
     @board = [
       [nil,nil,nil],
       [nil,nil,nil],
       [nil,nil,nil] 
     ]
     @pieces = [:o, :x]
-    @turn = 0
-    match.moves.each
   end
 
-  def turn_order
-    
-  end
-
-  def turn_count
-    @turn += 1
+  def number_of_turns
+    @match.moves.count
   end
 
   def draw_check
-   @turn == 9
+   number_of_turns == 9
   end
 
   def show_board
     @board
   end
 
-  def update_board (row, column)
-    @board[row][column] = @pieces[ @turn % 2 ]
-    redirect_to xo_path
+  def create_move(row, column)
+    piece = @pieces[ number_of_turns % 2 ]
+    @match.moves.create(row: row, column: column, piece: piece)
+    #winchecking
+    
   end 
+
+  def refresh_board
+    moves = @match.moves
+    moves.each do |move|
+      @board[move.row][move.column] = move.piece if move.row && move.column
+    end
+  end
 
 end

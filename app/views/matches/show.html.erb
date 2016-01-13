@@ -3,15 +3,15 @@
 <p>Click on a space to place your piece there</p>
   <table>
     <tbody>
-      <% @board.show_board.each do |row| %>
+      <% @game_state.show_board.each_with_index do |row, row_index| %>
       <tr>
-        <% row.each do |place| %>
+        <% row.each_with_index do |place, column_index| %>
         <td><% if place.nil? %>
-        <%= link_to image_tag ("Untitled.png")%>
-          <% elsif place == :x %>
-          <%= image_tag "x" %>
-          <% elsif place == :o %>
-          <%= image_tag "o" %>
+        <%= link_to(image_tag("Untitled.png"), match_place_piece_path(@match, {row: row_index, column: column_index}))%>
+          <% elsif place == "x" %>
+          <%= "X" %>
+          <% elsif place == "o" %>
+          <%= "O" %>
           <% end %></td>
           <% end %>
         </tr>
