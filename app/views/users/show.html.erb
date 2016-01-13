@@ -16,14 +16,57 @@
   <br>
   <% end %>
   <br><br>
-  <b>Matches:</b>
-  <br>
-  <% Match.all.each do |match| %>
-    <% if match.user_1_id == current_user.id || match.user_2_id == current_user.id %>
-      <%= match %>
-      <br>
-    <% end %>
-  <% end %>
+  <main class ="container">
+      <section class = "row">
+        <div class = "grid grid-3">
+          <div class = "panel panel-primary">
+            <div class = "panel-heading">Opponent</div>
+            <div class = "panel-body">
+              <% Match.all.each do |match| %>
+                <% if match.user_1_id == current_user.id %>
+                  <% opponent = match.user_2_id %>
+                <% else %>
+                  <% opponent = match.user_1_id %>
+                <% end %>
+                <%= User.find(params[:name]).where(id: opponent) %>
+                <br><br>
+              <% end %>
+            </div>
+          </div>
+
+        </div>
+        <div class = "grid grid-3">
+          <div class = "panel panel-primary">
+            <div class = "panel-heading">Game</div>
+            <div class = "panel-body">
+              <% Match.all.each do |match| %>
+                <%= match %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+        <div class = "grid grid-3">
+          <div class = "panel panel-primary">
+            <div class = "panel-heading">Result</div>
+            <div class = "panel-body">
+              <% Match.all.each do |match| %>
+                <% if match.winner == current_user.id %>
+                  <%= "win" %>
+                  <br><br>
+                <% elsif match.winner == 0 %>
+                  <%= "draw" %>
+                  <br><br>
+                <% elsif match.winner != current_user.id %>
+                  <%= "loss" %>
+                  <br><br>
+                <% end %> 
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
 
 </center>

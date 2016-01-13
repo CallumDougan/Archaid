@@ -128,7 +128,7 @@ nav ul li a {
 
 .panel {
   margin-bottom: 15px;
-  background-color: white;
+  background-color: wheat;
 }
 
 .panel-heading {
@@ -138,7 +138,7 @@ nav ul li a {
 }
 
 .panel-primary .panel-heading {
-  background-color: rgb(51, 188, 184);
+  background-color: rgb(38,45,66);
 }
 
 .panel-body{
